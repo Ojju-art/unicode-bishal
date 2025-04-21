@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicode to Bishal Font Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unicode to Bishal Font Converter</h1>
+        <textarea id="unicodeText" placeholder="Paste your Unicode text here..."></textarea>
+        <button onclick="convertToBishal()">Convert to Bishal</button>
+        <div class="output" id="bishalOutput"></div>
+    </div>
+
+    <script>
+        // Define the Unicode to Bishal character mapping
+        const unicodeToBishal = {
+            'ख': 'v',
+            'ा': 'f',
+            'त': 't',
+            ' ': ' ',
+            'क': 'k',
+            'ो': 'f',
+            'न': 'n',
+            'े': 'g',
+            'र': 'r',
+            'ी': 'i',
+            'म': 'm',
+            'ल': 'l',
+            'ध': 'd',
+            // Add more mappings as needed
+        };
+
+        // Function to convert Unicode to Bishal
+        function convertToBishal() {
+            const unicodeText = document.getElementById('unicodeText').value;
+            let bishalText = '';
+
+            // Convert each character from Unicode to Bishal
+            for (let i = 0; i < unicodeText.length; i++) {
+                const char = unicodeText[i];
+                bishalText += unicodeToBishal[char] || char;  // If no mapping, keep original character
+            }
+
+            // Display the Bishal-compatible text in the output box
+            document.getElementById('bishalOutput').innerText = bishalText;
+        }
+    </script>
+</body>
+</html>
